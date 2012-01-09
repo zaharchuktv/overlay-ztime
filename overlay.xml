@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<repositories version="1.0">
+  <repo priority="50" quality="experimental" status="unofficial">
+    <name>ztime</name>
+    <description>ztime Overlay</description>
+    <homepage>http://www.ztime.ru</homepage>
+    <owner>
+      <email>zime@ztime.ru</email>
+    </owner>
+    <source type="git">git://github.com/zaharchuktv/overlay-ztime.git</source>
+  </repo>
+</repositories>

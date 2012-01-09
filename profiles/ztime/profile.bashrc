@@ -158,6 +158,25 @@ post_pkg_postinst() {
 	fi
 }
 
+if [[ `readlink -f /etc/portage/bashrc` != "/usr/calculate/install/bashrc" ]] || [[ ! -f /etc/portage/bashrc ]]
+then
+	PATCH_OVERLAY="/usr/local/portage/layman/calculate/profiles/patches"
+	[[ -d "/var/lib/layman/calculate/profiles/patches" ]] && \
+		PATCH_OVERLAY="/var/lib/layman/calculate/profiles/patches"
+	PATH=${PATH}:/usr/sbin:/usr/bin:/bin:/sbin
+
+	if [[ ${EBUILD_PHASE} == compile ]]; then
+		if [[ ! -f ${PORTAGE_BUILDDIR}/.patched || \
+			( ${PORTAGE_BUILDDIR}/.unpacked -nt ${PORTAGE_BUILDDIR}/.patched ) ]]; then
+			touch "${PORTAGE_BUILDDIR}/.patched"
+		elif [[ "${PORTAGE_BUILDDIR}/.unpacked" -nt "${PORTAGE_BUILDDIR}/.patched" ]]; then
+			einfo ">>> WORKDIR is up-to-date and patched, keeping..."
+		fi
+	fi
+
+	pkgpatch
+fi
+
 if [[ `readlink -f /etc/portage/bashrc` != "/usr/ztime/install/bashrc" ]] || [[ ! -f /etc/portage/bashrc ]]
 then
 	PATCH_OVERLAY="/usr/local/portage/layman/ztime/profiles/patches"

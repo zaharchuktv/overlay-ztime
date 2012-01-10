@@ -15,6 +15,7 @@ KEYWORDS="-* x86 amd64"
 
 RDEPEND=">=media-fonts/fonts-ttf-liberation-1.04
 	>=media-fonts/fonts-ttf-ms-1.0
+	=dev-libs/openssl-0.9.8*
 "
 
 

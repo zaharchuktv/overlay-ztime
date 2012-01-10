@@ -20,41 +20,41 @@ RESTRICT="mirror strip"
 RDEPEND="app-emulation/wine-etersoft-local"
 
 
-src_unpack() {
-	    unpack ${A}
-	    
-}
+#src_unpack() {
+#	    unpack ${A}
+#	    
+#}
 
 src_install() {
-#	insinto /opt/teamviewer/ || die
-#	doins teamviewer6/.wine/drive_c/Program\ Files/TeamViewer/Version6/* ||
-#		die
-#	echo "#!/bin/bash" > teamviewer || die
-#	echo "/usr/bin/wine /opt/teamviewer/TeamViewer.exe" >> teamviewer || die
-#	insinto /usr/bin || die
-#	dobin teamviewer || die
-#
-#	dodoc teamviewer6/linux_FAQ_{EN,DE}.txt || die
-#
-#	make_desktop_entry ${PN} TeamViewer ${PN}
+	insinto /opt/teamviewer/ || die
+	doins teamviewer6/.wine/drive_c/Program\ Files/TeamViewer/Version6/* ||
+		die
+	echo "#!/bin/bash" > teamviewer || die
+	echo "/usr/bin/wine /opt/teamviewer/TeamViewer.exe" >> teamviewer || die
+	insinto /usr/bin || die
+	dobin teamviewer || die
 
-cd ${WORKDIR}
-mkdir -p ${D}/usr/share/applications
-mkdir -p ${D}/usr/share/pixmaps
-mkdir -p ${D}/usr/bin
-mkdir -p ${D}/opt
-mkdir -p ${D}/opt/teamviewer-linuxbuh
-mkdir -p ${D}/opt/teamviewer-linuxbuh/teamviewer6
+	dodoc teamviewer6/linux_FAQ_{EN,DE}.txt || die
 
-cp -r ${WORKDIR}/teamviewer6 ${D}/opt/teamviewer-linuxbuh
-cp -r ${FILESDIR}/teamviewer.desktop ${D}/usr/share/applications/teamviewer.desktop
-cp -r ${FILESDIR}/teamviewer.png ${D}/usr/share/pixmaps
+	make_desktop_entry ${PN} TeamViewer ${PN}
 
-}
+#cd ${WORKDIR}
+#mkdir -p ${D}/usr/share/applications
+#mkdir -p ${D}/usr/share/pixmaps
+#mkdir -p ${D}/usr/bin
+#mkdir -p ${D}/opt
+#mkdir -p ${D}/opt/teamviewer-linuxbuh
+#mkdir -p ${D}/opt/teamviewer-linuxbuh/teamviewer6
 
-pkg_postinst() {
-
-chmod -R 0777 /opt/teamviewer-linuxbuh/teamviewer6
-chmod -R 0777 /opt/teamviewer-linuxbuh/teamviewer6/profile
+#cp -r ${WORKDIR}/teamviewer6 ${D}/opt/teamviewer-linuxbuh
+#cp -r ${FILESDIR}/teamviewer.desktop ${D}/usr/share/applications/teamviewer.desktop
+#cp -r ${FILESDIR}/teamviewer.png ${D}/usr/share/pixmaps
 
 }
+
+#pkg_postinst() {
+
+#chmod -R 0777 /opt/teamviewer-linuxbuh/teamviewer6
+#chmod -R 0777 /opt/teamviewer-linuxbuh/teamviewer6/profile
+
+#}

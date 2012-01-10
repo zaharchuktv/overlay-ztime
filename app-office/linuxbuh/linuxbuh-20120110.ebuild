@@ -26,19 +26,22 @@ src_compile() {
 }
 
 src_install() {
+cd ${WORKDIR}
 mkdir -p ${D}/usr/share/doc/linuxbuh
 mkdir -p ${D}/usr/share/doc/linuxbuh/bx
 mkdir -p ${D}/usr/share/doc/linuxbuh/doc
 mkdir -p ${D}/usr/share/pixmaps
 mkdir -p ${D}/usr/share/applications
+mkdir -p ${D}/usr/bin
 
 cp -r ${WORKDIR}/labels/*.desktop ${D}/usr/share/applications
 cp -r ${WORKDIR}/INSTALL ${D}/usr/share/doc/linuxbuh
 cp -r ${WORKDIR}/doc/*.txt ${D}/usr/share/doc/linuxbuh/doc
 cp -r ${WORKDIR}/bx/*.alx ${D}/usr/share/doc/linuxbuh/bx
-cd ${WORKDIR}
+cp -r ${WORKDIR}/resources/linuxbuhupdate ${D}/usr/bin
 dodir /usr/bin
 emake BINDIR=${D}/usr/bin install || die "emake failed"
+
 
 }
 

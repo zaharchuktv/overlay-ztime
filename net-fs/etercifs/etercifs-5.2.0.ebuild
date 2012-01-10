@@ -13,6 +13,10 @@ LICENSE=GPLv2
 SLOT="0"
 KEYWORDS="-* x86 amd64"
 
+RDEPEND="!net-fs/cifs-utils
+"
+
+
 src_unpack() {
 unpack ${A}
 }

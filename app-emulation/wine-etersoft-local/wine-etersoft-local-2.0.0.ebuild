@@ -13,7 +13,9 @@ LICENSE=Commercial
 SLOT="0"
 KEYWORDS="-* x86 amd64"
 
-RDEPEND="!app-emulation/wine"
+RDEPEND="!app-emulation/wine
+	>=app-emulation/wine-etersoft-2.0.0
+"
 
 
 src_unpack() {

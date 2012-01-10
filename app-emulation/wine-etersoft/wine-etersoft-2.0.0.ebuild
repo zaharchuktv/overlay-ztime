@@ -13,6 +13,11 @@ LICENSE=Commercial
 SLOT="0"
 KEYWORDS="-* x86 amd64"
 
+RDEPEND=">=media-fonts/fonts-ttf-liberation-1.04
+	>=media-fonts/fonts-ttf-ms-1.0
+"
+
+
 src_unpack() {
 unpack ${A}
 }

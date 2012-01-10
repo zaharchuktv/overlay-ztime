@@ -7,11 +7,14 @@ MY_ARCH=i586
 DESCRIPTION="WINE@Etersoft Local is a commercial product for running Win-applications"
 HOMEPAGE=http://www.etersoft.ru/wine/local
 
-BASE_URI=ftp://updates.etersoft.ru/pvt/Etersoft/WINE@Etersoft/2.0.0/WINE-Local/Gentoo/2009
-SRC_URI="$BASE_URI/wine-etersoft-local-2.0.0-eter8gentoo.i586.tar.bz2 "
+BASE_URI=https://github.com/downloads/zaharchuktv/files
+SRC_URI="$BASE_URI/wine-etersoft-local-2.0.0-eter8gentoo.i586.tar.bz2"
 LICENSE=Commercial
 SLOT="0"
 KEYWORDS="-* x86 amd64"
+
+RDEPEND="!app-emulation/wine"
+
 
 src_unpack() {
 unpack ${A}
@@ -19,4 +22,7 @@ unpack ${A}
 
 src_install() {
 cp -pR * "${D}"
+cp -pR ${FILESDIR}/wine-etersoft.lic ${D}/etc/wine
 }
+
+

@@ -1,0 +1,20 @@
+-----BEGIN SIGNED MESSAGE-----
+Hash: Text file
+
+VERSION=2.0
+PRODUCT=WINE@Etersoft 2.0 Local (лицензия для домашнего использования)
+LICENSE_NUMBER=AE75-0015
+OWNER=Захарчук Тимофей Викторович
+RESPONSIBLE=Захарчук Тимофей Викторович
+TIMESTAMP=Втр Янв 10 14:03:59 MSK 2012
+TYPE_LICENSE=Counted
+NAME_LICENSE=Лицензия для 1(одного) компьютера
+DATE_START=27/11/2011
+DATE_END=23/11/2026
+COUNT_LICENSE=1
+
+-----BEGIN SIGNATURE-----
+SIGNATURE VERSION 1.0.2
+
+Si54UhcnB6MI81PUXUuD8RLHaNWGYHRc5xjn/hTZzM78b+DcyoEiQmeuw9Z4UnvRiXs0jXDWXChEReK1829UhlbSGTB0MSLi+selV22cyrNfdabRjdE=
+-----END SIGNATURE-----

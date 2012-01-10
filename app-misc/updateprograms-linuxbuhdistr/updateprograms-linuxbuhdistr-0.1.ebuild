@@ -4,14 +4,14 @@
 
 inherit eutils 
 
-DESCRIPTION="Accounting system LinuxBuh.RU"
+DESCRIPTION="Update system LinuxBuh.RU Distrib"
 HOMEPAGE="http://www.linuxbuh.ru"
-SRC_URI="https://github.com/downloads/zaharchuktv/linuxbuh/${P}.tar.gz"
+SRC_URI="https://github.com/downloads/zaharchuktv/overlay-ztime/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
-DEPEND="dev-db/mysql"
+DEPEND=""
 
 RDEPEND="${DEPEND}"
 
@@ -21,28 +21,19 @@ src_unpack() {
 }
 
 
-src_compile() {
-	emake || die "make failed"
-}
+#src_compile() {
+#	emake || die "make failed"
+#}
 
 src_install() {
 cd ${WORKDIR}
-mkdir -p ${D}/usr/share/doc/linuxbuh
-mkdir -p ${D}/usr/share/doc/linuxbuh/bx
-mkdir -p ${D}/usr/share/doc/linuxbuh/doc
 mkdir -p ${D}/usr/share/pixmaps
 mkdir -p ${D}/usr/share/applications
 mkdir -p ${D}/usr/bin
 
 cp -r ${WORKDIR}/labels/*.desktop ${D}/usr/share/applications
-cp -r ${WORKDIR}/labels/*.png ${D}/usr/share/pixmaps
-cp -r ${WORKDIR}/INSTALL ${D}/usr/share/doc/linuxbuh
-cp -r ${WORKDIR}/doc/*.txt ${D}/usr/share/doc/linuxbuh/doc
-cp -r ${WORKDIR}/bx/*.alx ${D}/usr/share/doc/linuxbuh/bx
-cp -r ${WORKDIR}/resources/linuxbuhupdate ${D}/usr/bin
-dodir /usr/bin
-emake BINDIR=${D}/usr/bin install || die "emake failed"
-
+cp -r ${WORKDIR}/images/*.png ${D}/usr/share/pixmaps
+cp -r ${WORKDIR}/updateprograms-linuxbuhdistr ${D}/usr/bin
 
 }
 

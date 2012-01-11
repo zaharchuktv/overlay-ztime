@@ -37,7 +37,7 @@ src_install() {
 	dodoc teamviewer6/linux_FAQ_{EN,DE}.txt || die
 
 	make_desktop_entry ${PN} TeamViewer ${PN}
-cp -r ${FILESDIR}/teamviewer.png ${D}/usr/share/pixmaps
+cp -r ${FILESDIR}/teamviewer.png ${D}/usr/share/pixmaps/teamviewer.png
 
 #cd ${WORKDIR}
 #mkdir -p ${D}/usr/share/applications

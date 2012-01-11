@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Установка TeamViewer 6
+Comment=TeamViewer Remote Control Application Install
+Exec=installteamviewer.sh
+Icon=teamviewer.png
+Type=Application
+Categories=System;
+#Categories=Network;RemoteAccess;
+

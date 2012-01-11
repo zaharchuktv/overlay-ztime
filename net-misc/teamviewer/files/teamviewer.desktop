@@ -6,6 +6,6 @@ Comment=TeamViewer Remote Control Application
 Exec=teamviewer
 Icon=teamviewer.png
 Type=Application
-Categories=Network;
-#Categories=Network;RemoteAccess;
+#Categories=Network;
+Categories=Network;RemoteAccess;
 

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Остановить TeamViewer 6
+Comment=Выключить TeamViewer Remote Control Application
+Exec=killteamviewer
+Icon=teamviewer.png
+Type=Application
+Categories=Network;
+#Categories=Network;RemoteAccess;
+

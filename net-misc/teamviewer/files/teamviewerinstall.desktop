@@ -1,8 +1,8 @@
 [Desktop Entry]
 Version=1.0
 Encoding=UTF-8
-Name=Установка TeamViewer 6
-Comment=TeamViewer Remote Control Application Install
+Name=Установить TeamViewer 6
+Comment=Установка на компьютер TeamViewer Remote Control Application
 Exec=teamviewerinstall
 Icon=teamviewer.png
 Type=Application

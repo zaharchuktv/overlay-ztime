@@ -6,6 +6,6 @@ Comment=Установка на компьютер TeamViewer Remote Control App
 Exec=teamviewerinstall
 Icon=teamviewer.png
 Type=Application
-#Categories=System;
-Categories=RemoteAccess;
+Categories=System;
+#Categories=RemoteAccess;
 

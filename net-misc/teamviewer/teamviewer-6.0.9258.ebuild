@@ -38,6 +38,7 @@ src_install() {
 
 	make_desktop_entry ${PN} TeamViewer ${PN}
 
+cp -r ${FILESDIR}/teamviewer.desktop ${D}/usr/share/applications/teamviewer.desktop
 #cd ${WORKDIR}
 #mkdir -p ${D}/usr/share/applications
 #mkdir -p ${D}/usr/share/pixmaps
@@ -47,7 +48,7 @@ src_install() {
 #mkdir -p ${D}/opt/teamviewer-linuxbuh/teamviewer6
 
 #cp -r ${WORKDIR}/teamviewer6 ${D}/opt/teamviewer-linuxbuh
-#cp -r ${FILESDIR}/teamviewer.desktop ${D}/usr/share/applications/teamviewer.desktop
+
 #cp -r ${FILESDIR}/teamviewer.png ${D}/usr/share/pixmaps
 
 }

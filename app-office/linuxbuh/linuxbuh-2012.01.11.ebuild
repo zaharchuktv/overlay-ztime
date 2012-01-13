@@ -11,7 +11,8 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
-DEPEND="dev-db/mysql"
+DEPEND="dev-db/mysql
+	>=x11-libs/gtk+-2.4"
 
 RDEPEND="${DEPEND}"
 

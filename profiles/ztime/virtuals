@@ -1,0 +1,2 @@
+virtual/linux-sources	sys-kernel/calculate-sources
+virtual/man		sys-apps/man-db

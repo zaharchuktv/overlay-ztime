@@ -17,7 +17,7 @@ IUSE=""
 
 RESTRICT="mirror strip"
 
-RDEPEND="app-emulation/wine-etersoft-local"
+RDEPEND="app-emulation/wine"
 
 
 src_unpack() {

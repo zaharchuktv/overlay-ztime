@@ -1,2 +1,6 @@
+CHOST="i586-pc-linux-gnu"
+CFLAGS="-march=pentium -O2 -pipe -fomit-frame-pointer"
+CXXFLAGS="${CFLAGS}"
 PKGDIR="/var/calculate/remote/packages/CDS/pentium"
+CALCULATE="nokernel"
 #PORTAGE_BINHOST="http://mirror.cnet.kz/calculate/CDS/grp/i686"

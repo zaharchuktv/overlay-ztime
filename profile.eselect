@@ -1,0 +1,283 @@
+# -*-eselect-*-  vim: ft=eselect
+# Copyright 1999-2011 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id: profile.eselect 812 2011-03-15 14:51:32Z ulm $
+
+# This is a portage-only module.
+inherit package-manager
+
+DESCRIPTION="Manage the make.profile symlink"
+MAINTAINER="eselect@gentoo.org"
+SVN_DATE='$Date: 2011-03-15 15:51:32 +0100 (Tue, 15 Mar 2011) $'
+VERSION=$(svn_date_to_version "${SVN_DATE}")
+
+# get a list of valid profiles
+# add calculate overlay to profiles
+NEW_CALCULATE_OVERLAY="/var/lib/layman/calculate"
+[[ -d ${NEW_CALCULATE_OVERLAY} ]] && 
+	CALCULATE_OVERLAY=${NEW_CALCULATE_OVERLAY} ||
+	CALCULATE_OVERLAY="/usr/local/portage/layman/calculate"
+# add ztime overlay to profiles
+NEW_ZTIME_OVERLAY="/var/lib/layman/ztime"
+[[ -d ${NEW_ZTIME_OVERLAY} ]] && 
+	ZTIME_OVERLAY=${NEW_ZTIME_OVERLAY} ||
+	ZTIME_OVERLAY="/usr/local/portage/layman/ztime"
+
+# get location of make.profile symlink
+get_symlink_location() {
+	local oldloc=${EROOT%/}/etc/make.profile
+	local newloc=${EROOT%/}/etc/portage/make.profile
+
+	if [[ -e ${oldloc} ]]; then
+		MAKE_PROFILE=${oldloc}
+		if [[ -e ${newloc} ]]; then
+			write_warning_msg "Both ${oldloc} and ${newloc} exist."
+			write_warning_msg "Using ${MAKE_PROFILE} for now."
+		fi
+	else
+		MAKE_PROFILE=${newloc}
+	fi
+}
+
+# get a list of valid profiles
+find_targets() {
+	local arch p portdir=$1
+	[[ -n ${portdir} ]] || portdir=$(portageq portdir)
+
+	arch=$(arch)
+	[[ -z ${arch} ]] && return 1
+
+	# add support calculate overlay
+	if [[ -f "${ROOT}${CALCULATE_OVERLAY}/profiles/profiles.desc" ]]
+	then
+		for p in $(sed -n -e \
+			"s|^${arch}[[:space:]]\+\([^[:space:]]\+\).*$|\1|p" \
+			"${ROOT}${CALCULATE_OVERLAY}/profiles/profiles.desc")
+		do
+			echo ${p}
+		done
+	fi
+	# add support ztime overlay
+	if [[ -f "${ROOT}${ZTIME_OVERLAY}/profiles/profiles.desc" ]]
+	then
+		for p in $(sed -n -e \
+			"s|^${arch}[[:space:]]\+\([^[:space:]]\+\).*$|\1|p" \
+			"${ROOT}${ZTIME_OVERLAY}/profiles/profiles.desc")
+		do
+			echo ${p}
+		done
+	fi
+
+	for p in $(sed -n -e "s|^${arch}[[:space:]]\+\([^[:space:]]\+\).*$|\1|p" \
+		"${ROOT}${portdir}/profiles/profiles.desc")
+	do
+		echo ${p}
+	done
+}
+
+# remove make.profile symlink
+remove_symlink() {
+	rm "${MAKE_PROFILE}"
+}
+
+# set the make.profile symlink
+set_symlink() {
+	local portdir=$(portageq portdir) target=$1 force=$2 targets arch parch
+
+	if is_number "${target}"; then
+		targets=( $(find_targets "${portdir}") )
+		[[ -z ${targets} ]] && die -q "Failed to get a list of valid profiles"
+		target=${targets[target-1]}
+	elif [[ -n ${target} && -d ${ROOT}${portdir}/profiles/${target} ]]
+	then
+		# if the profile was explicitly specified (rather than a number)
+		# double check and make sure it's valid
+		arch=$(arch)
+		[[ -z ${arch} && -z ${force} ]] && return 1
+
+		# do a reverse lookup and find the arch associated with ${target}
+		parch=$(sed -n -e \
+			"s|^\([[:alnum:]]\+\)[[:space:]].*${target}[[:space:]].*$|\1|p" \
+			"${ROOT}${portdir}/profiles/profiles.desc")
+
+		if [[ ${arch} != ${parch} && -z ${force} ]]; then
+			die -q "${target} is not a valid profile for ${arch}"
+		fi
+		# add support calculate overlay
+	elif [[ -n ${target} && -d ${ROOT}${CALCULATE_OVERLAY}/profiles/${target} ]]
+	then
+		local arch parch
+
+		# if the profile was explicitly specified (rather than a number)
+		# double check and make sure it's valid
+		arch=$(arch)
+		[[ -z ${arch} && -z ${force} ]] && return 1
+
+		# do a reverse lookup and find the arch associated with ${target}
+		parch=$(sed -n -e \
+			"s|^\([[:alnum:]]\+\)[[:space:]].*${target}[[:space:]].*$|\1|p" \
+			"${ROOT}${CALCULATE_OVERLAY}/profiles/profiles.desc")
+
+		if [[ ${arch} != ${parch} && -z ${force} ]] ; then
+			die -q "${target} is not a valid profile for ${arch}"
+		fi
+		# add support ztime overlay
+	elif [[ -n ${target} && -d ${ROOT}${ZTIME_OVERLAY}/profiles/${target} ]]
+	then
+		local arch parch
+
+		# if the profile was explicitly specified (rather than a number)
+		# double check and make sure it's valid
+		arch=$(arch)
+		[[ -z ${arch} && -z ${force} ]] && return 1
+
+		# do a reverse lookup and find the arch associated with ${target}
+		parch=$(sed -n -e \
+			"s|^\([[:alnum:]]\+\)[[:space:]].*${target}[[:space:]].*$|\1|p" \
+			"${ROOT}${ZTIME_OVERLAY}/profiles/profiles.desc")
+
+		if [[ ${arch} != ${parch} && -z ${force} ]] ; then
+			die -q "${target} is not a valid profile for ${arch}"
+		fi
+	fi
+
+	if [[ -z ${target} ]]; then
+		die -q "Target \"$1\" doesn't appear to be valid!"
+	elif [[ -d ${ROOT}${portdir}/profiles/${target} ]]; then
+		# we must call remove_symlink() here instead of calling
+		# it from do_set(), since if the link is removed, we
+		# cannot determine $ARCH in find_targets()
+		if [[ -L ${MAKE_PROFILE} ]]; then
+			remove_symlink \
+				|| die -q "Couldn't remove current ${MAKE_PROFILE} symlink"
+		fi
+		ln -s "$(relative_name \
+			"${ROOT}${portdir}" "${MAKE_PROFILE%/*}")/profiles/${target}" \
+			"${MAKE_PROFILE}"
+		# check if the resulting symlink is sane
+		if [[ $(canonicalise "${MAKE_PROFILE}") \
+			!= "$(canonicalise "${EROOT}")"/* ]]; then
+			write_warning_msg \
+				"Strange path. Check ${MAKE_PROFILE} symlink"
+		fi
+	# add support calculate overlay
+	elif [[ -d ${ROOT}${CALCULATE_OVERLAY}/profiles/${target} ]] ; then
+		# we must call remove_symlink() here instead of calling
+		# it from do_set(), since if the link is removed, we
+		# cannot determine $ARCH in find_targets()
+		if [[ -L ${MAKE_PROFILE} ]] ; then
+			remove_symlink \
+				|| die -q "Couldn't remove current make.profile symlink"
+		fi
+		ln -s "..${CALCULATE_OVERLAY}/profiles/${target}" \
+			"${EROOT}/etc/make.profile"
+	# add support ztime overlay
+	elif [[ -d ${ROOT}${ZTIME_OVERLAY}/profiles/${target} ]] ; then
+		# we must call remove_symlink() here instead of calling
+		# it from do_set(), since if the link is removed, we
+		# cannot determine $ARCH in find_targets()
+		if [[ -L ${MAKE_PROFILE} ]] ; then
+			remove_symlink \
+				|| die -q "Couldn't remove current make.profile symlink"
+		fi
+		ln -s "..${ZTIME_OVERLAY}/profiles/${target}" \
+			"${EROOT}/etc/make.profile"
+	else
+		die -q "Target \"$1\" doesn't appear to be valid!"
+	fi
+}
+
+### show action ###
+
+describe_show() {
+	echo "Show the current make.profile symlink"
+}
+
+do_show() {
+	get_symlink_location
+	write_list_start "Current ${MAKE_PROFILE} symlink:"
+	if [[ -L ${MAKE_PROFILE} ]]; then
+		local link=$(canonicalise "${MAKE_PROFILE}")
+		local portdir=$(portageq portdir)
+		local profiledir=$(canonicalise "${ROOT}${portdir}/profiles")
+		link=${link##${profiledir}/}
+		# add support calculate overlay
+		calcprofiledir=$(canonicalise "${ROOT}${CALCULATE_OVERLAY}/profiles")
+		link=${link##${calcprofiledir}/}
+		# add support ztime overlay
+		ztimeprofiledir=$(canonicalise "${ROOT}${ZTIME_OVERLAY}/profiles")
+		link=${link##${ztimeprofiledir}/}
+
+		write_kv_list_entry "${link}" ""
+	else
+		write_kv_list_entry "(unset)" ""
+	fi
+}
+
+### list action ###
+
+describe_list() {
+	echo "List available profile symlink targets"
+}
+
+do_list() {
+	local portdir profiledir active targets
+	targets=( $(find_targets) )
+
+	[[ -z ${targets} ]] && die -q "Failed to get a list of valid profiles"
+
+	get_symlink_location
+	portdir=$(portageq portdir)
+	profiledir=$(canonicalise "${ROOT}${portdir}/profiles")
+	active=$(canonicalise "${MAKE_PROFILE}")
+	active=${active##${profiledir}/}
+	# add support calculate overlay
+	calcprofiledir=$(canonicalise "${ROOT}${CALCULATE_OVERLAY}/profiles")
+	active=${active##${calcprofiledir}/}
+	# add support ztime overlay
+	ztimeprofiledir=$(canonicalise "${ROOT}${ZTIME_OVERLAY}/profiles")
+	active=${active##${ztimeprofiledir}/}
+
+	if [[ -n ${targets[@]} ]]; then
+		local i
+		for (( i = 0; i < ${#targets[@]}; i++ )); do
+			[[ ${targets[i]} == ${active} ]] \
+				&& targets[i]=$(highlight_marker "${targets[i]}")
+		done
+	fi
+	write_list_start "Available profile symlink targets:"
+	write_numbered_list "${targets[@]}"
+}
+
+### set action ###
+
+describe_set() {
+	echo "Set a new profile symlink target"
+}
+
+describe_set_parameters() {
+	echo "<target>"
+}
+
+describe_set_options() {
+	echo "target : Target name or number (from 'list' action)"
+	echo "--force : Forcibly set the symlink"
+}
+
+do_set() {
+	local force
+	if [[ $1 == "--force" ]]; then
+		force=1
+		shift
+	fi
+
+	[[ -z $1 ]] && die -q "You didn't tell me what to set the symlink to"
+	[[ $# -gt 1 ]] && die -q "Too many parameters"
+
+	get_symlink_location
+	if [[ -e ${MAKE_PROFILE} ]] && [[ ! -L ${MAKE_PROFILE} ]]; then
+		die -q "${MAKE_PROFILE} exists but is not a symlink"
+	else
+		set_symlink "$1" ${force} || die -q "Couldn't set a new symlink"
+	fi
+}

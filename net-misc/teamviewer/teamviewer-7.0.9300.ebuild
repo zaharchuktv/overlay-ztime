@@ -35,6 +35,8 @@ mkdir -p ${D}/opt
 mkdir -p ${D}/opt/teamviewer-linuxbuh
 mkdir -p ${D}/opt/teamviewer-linuxbuh/teamviewer
 
+mv ${WORKDIR}/teamviewer7 ${WORKDIR}/teamviewer
+
 cp -r ${WORKDIR}/teamviewer ${D}/opt/teamviewer-linuxbuh
 cp -r ${FILESDIR}/teamviewer.desktop ${D}/usr/share/applications/teamviewer.desktop
 cp -r ${FILESDIR}/teamviewerinstall.desktop ${D}/usr/share/applications/teamviewerinstall.desktop

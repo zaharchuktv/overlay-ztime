@@ -1,4 +1,4 @@
 #!/bin/sh
 
 
-teamviewerdelete && sudo layman -s ztime && sudo eix-update && sudo emerge -C teamviewer && sudo emerge teamviewer && teamviewerinstall
+rm -r ~/Программы/teamviewer && sudo layman -s ztime && sudo eix-update && sudo emerge teamviewer && teamviewerinstall

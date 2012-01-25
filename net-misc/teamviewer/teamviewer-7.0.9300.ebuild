@@ -18,7 +18,7 @@ IUSE=""
 RESTRICT="mirror strip"
 
 RDEPEND="app-emulation/wine
-	!=net-misc/teamviewer-6.2.9258"
+	!=net-misc/teamviewer-6.0.9258"
 
 
 src_unpack() {

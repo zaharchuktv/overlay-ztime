@@ -1,3 +1,4 @@
 #!/bin/sh
 
-sudo layman -s ztime && sudo eix-update && sudo emerge teamviewer && cp -r /opt/teamviewer-linuxbuh/teamviewer ~/Программы/teamviewer
+
+teamviewerdelete && sudo layman -s ztime && sudo eix-update && sudo emerge -C teamviewer && sudo emerge teamviewer && teamviewerinstall

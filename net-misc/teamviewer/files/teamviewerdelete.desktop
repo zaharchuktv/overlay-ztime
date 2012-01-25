@@ -1,7 +1,7 @@
 [Desktop Entry]
 Version=1.0
 Encoding=UTF-8
-Name=Удалить TeamViewer 6
+Name=Удалить TeamViewer
 Comment=Удаление с компьютера TeamViewer Remote Control Application
 Exec=teamviewerdelete
 Icon=teamviewer.png

@@ -1,9 +1,9 @@
 [Desktop Entry]
 Version=1.0
 Encoding=UTF-8
-Name=Остановить TeamViewer
-Comment=Выключить TeamViewer Remote Control Application
-Exec=killteamviewer
+Name=Обновить TeamViewer
+Comment=Обновить TeamViewer Remote Control Application
+Exec=teamviewerupdate
 Icon=teamviewer.png
 Type=Application
 Categories=System;

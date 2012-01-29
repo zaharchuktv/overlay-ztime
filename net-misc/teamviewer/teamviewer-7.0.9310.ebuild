@@ -8,7 +8,7 @@ inherit eutils
 
 DESCRIPTION="the All-In-One Solution for Remote Access and Support over the Internet"
 HOMEPAGE="http://www.teamviewer.com"
-SRC_URI="http://www.teamviewer.com/download/version_7x/teamviewer_linux.tar.gz -> ${P}.tar.gz"
+SRC_URI="http://www.teamviewer.com/download/teamviewer_linux.tar.gz -> ${P}.tar.gz"
 
 LICENSE="TeamViewer"
 SLOT="0"

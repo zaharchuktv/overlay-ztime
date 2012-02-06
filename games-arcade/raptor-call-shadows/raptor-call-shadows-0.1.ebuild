@@ -38,6 +38,7 @@ cp -r ${WORKDIR}/${P}/RaptorCalloftheShadows.png ${D}/usr/share/pixmaps
 cp -r ${WORKDIR}/${P}/raptor-call-shadows ${D}/usr/bin
 cp -r ${WORKDIR}/${P}/raptor-call-shadows-unarh ${D}/usr/bin
 
+
 }
 
 #pkg_postinst() {

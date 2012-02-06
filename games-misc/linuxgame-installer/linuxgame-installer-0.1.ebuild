@@ -38,7 +38,7 @@ cp -r ${WORKDIR}/${P}/linuxgame-installer-update.desktop ${D}/usr/share/applicat
 cp -r ${WORKDIR}/${P}/linuxgame-installer.png ${D}/usr/share/pixmaps
 cp -r ${WORKDIR}/${P}/linuxgame-installer-update ${D}/usr/bin
 cp -r ${WORKDIR}/${P}/linuxgame-installer ${D}/usr/bin
-cp -r ${WORKDIR}/${P}/txt ${D}/usr/share/linuxgame-installer/txt
+cp -r ${WORKDIR}/${P}/txt ${D}/usr/share/linuxgame-installer
 
 
 }

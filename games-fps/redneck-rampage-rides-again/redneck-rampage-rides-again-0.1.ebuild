@@ -31,8 +31,8 @@ mkdir -p ${D}/usr/share/applications
 mkdir -p ${D}/usr/share/pixmaps
 mkdir -p ${D}/usr/bin
 
-cp -r ${WORKDIR}/${P}/redneck-rampage-rides-again.desktop ${D}/usr/share/redneck-rampage/redneck-rampage-rides-again.desktop
-cp -r ${WORKDIR}/${P}/redneck-rampage-rides-again.desktop ${D}/usr/share/applications/redneck-rampage-rides-again.desktop
+cp -r ${WORKDIR}/${P}/redneck-rampage-rides-again.desktop ${D}/usr/share/redneck-rampage-rides-again/redneck-rampage-rides-again.desktop
+#cp -r ${WORKDIR}/${P}/redneck-rampage-rides-again.desktop ${D}/usr/share/applications/redneck-rampage-rides-again.desktop
 cp -r ${WORKDIR}/${P}/redneck-rampage-rides-again-unarh.desktop ${D}/usr/share/applications/redneck-rampage-rides-again-unarh.desktop
 cp -r ${WORKDIR}/${P}/RedneckRampageRidesAgain.png ${D}/usr/share/pixmaps
 cp -r ${WORKDIR}/${P}/redneck-rampage-rides-again ${D}/usr/bin

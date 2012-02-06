@@ -8,7 +8,7 @@ inherit eutils
 
 DESCRIPTION="Raptor Call of the Shadows"
 HOMEPAGE="http://linuxgameru.narod.ru"
-SRC_URI="http://linuxgameru.narod.ru/${P}.tar.gz"
+SRC_URI="https://github.com/downloads/zaharchuktv/linuxgame/${P}.tar.gz"
 
 LICENSE="GPL"
 SLOT="0"

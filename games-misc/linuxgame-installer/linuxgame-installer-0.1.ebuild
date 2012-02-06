@@ -8,7 +8,7 @@ inherit eutils
 
 DESCRIPTION="Games for Linux"
 HOMEPAGE="http://linuxgameru.narod.ru"
-SRC_URI="http://www.teamviewer.com/download/${P}.tar.gz"
+SRC_URI="https://github.com/downloads/zaharchuktv/linuxgame/${P}.tar.gz"
 
 LICENSE="GPL"
 SLOT="0"

@@ -17,7 +17,7 @@ IUSE=""
 
 RESTRICT="mirror strip"
 
-RDEPEND=""
+RDEPEND="media-libs/alsa-oss"
 
 src_unpack() {
 	    unpack ${A}

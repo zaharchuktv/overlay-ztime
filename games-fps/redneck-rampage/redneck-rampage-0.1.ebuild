@@ -34,7 +34,7 @@ mkdir -p ${D}/usr/bin
 cp -r ${WORKDIR}/${P}/redneck-rampage.desktop ${D}/usr/share/redneck-rampage/redneck-rampage.desktop
 cp -r ${WORKDIR}/${P}/redneck-rampage.desktop ${D}/usr/share/applications/redneck-rampage.desktop
 cp -r ${WORKDIR}/${P}/redneck-rampage-unarh.desktop ${D}/usr/share/applications/redneck-rampage-unarh.desktop
-cp -r ${WORKDIR}/${P}/RaptorCalloftheShadows.png ${D}/usr/share/pixmaps
+cp -r ${WORKDIR}/${P}/RedneckRampage.png ${D}/usr/share/pixmaps
 cp -r ${WORKDIR}/${P}/redneck-rampage ${D}/usr/bin
 cp -r ${WORKDIR}/${P}/redneck-rampage-unarh ${D}/usr/bin
 

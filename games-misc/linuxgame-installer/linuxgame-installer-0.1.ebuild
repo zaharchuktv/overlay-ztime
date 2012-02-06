@@ -17,7 +17,7 @@ IUSE=""
 
 RESTRICT="mirror strip"
 
-RDEPEND=""
+RDEPEND="x11-terms/xterm"
 
 
 src_unpack() {

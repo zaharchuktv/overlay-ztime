@@ -32,6 +32,7 @@ mkdir -p ${D}/usr/share/pixmaps
 mkdir -p ${D}/usr/bin
 
 cp -r ${WORKDIR}/${P}/raptor-call-shadows.desktop ${D}/usr/share/raptor-call-shadows/raptor-call-shadows.desktop
+cp -r ${WORKDIR}/${P}/raptor-call-shadows.desktop ${D}/usr/share/applications/raptor-call-shadows.desktop
 cp -r ${WORKDIR}/${P}/raptor-call-shadows-unarh.desktop ${D}/usr/share/applications/raptor-call-shadows-unarh.desktop
 cp -r ${WORKDIR}/${P}/RaptorCalloftheShadows.png ${D}/usr/share/pixmaps
 cp -r ${WORKDIR}/${P}/raptor-call-shadows ${D}/usr/bin

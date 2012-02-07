@@ -40,7 +40,7 @@ cp -r ${WORKDIR}/${P}/RedneckRampage.png ${D}/usr/share/pixmaps
 cp -r ${WORKDIR}/${P}/redneck-rampage ${D}/usr/bin
 cp -r ${WORKDIR}/${P}/redneck-rampage-cusspack ${D}/usr/bin
 cp -r ${WORKDIR}/${P}/redneck-rampage-unarh ${D}/usr/bin
-
+cp -r ${WORKDIR}/${P}/readme.txt ${D}/usr/share/redneck-rampage
 
 }
 

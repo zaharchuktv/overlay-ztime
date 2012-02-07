@@ -32,12 +32,12 @@ mkdir -p ${D}/usr/share/pixmaps
 mkdir -p ${D}/usr/bin
 
 cp -r ${WORKDIR}/${P}/jazz-jack-rabbit.desktop ${D}/usr/share/jazz-jack-rabbit/jazz-jack-rabbit.desktop
-#cp -r ${WORKDIR}/${P}/jazz-jack-rabbit.desktop ${D}/usr/share/applications/jazz-jack-rabbit.desktop
+cp -r ${WORKDIR}/${P}/jazz-jack-rabbit.desktop ${D}/usr/share/applications/jazz-jack-rabbit.desktop
 cp -r ${WORKDIR}/${P}/jazz-jack-rabbit-unarh.desktop ${D}/usr/share/applications/jazz-jack-rabbit-unarh.desktop
 cp -r ${WORKDIR}/${P}/JazzJackRabbit.png ${D}/usr/share/pixmaps
 cp -r ${WORKDIR}/${P}/jazz-jack-rabbit ${D}/usr/bin
 cp -r ${WORKDIR}/${P}/jazz-jack-rabbit-unarh ${D}/usr/bin
-
+cp -r ${WORKDIR}/${P}/readme.txt ${D}/usr/share/jazz-jack-rabbit
 }
 
 #pkg_postinst() {

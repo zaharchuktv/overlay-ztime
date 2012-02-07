@@ -6,7 +6,7 @@ EAPI=3
 
 inherit eutils
 
-DESCRIPTION="Raptor Call of the Shadows"
+DESCRIPTION="Redneck Rampage Suckin Grits on Route 66 addon"
 HOMEPAGE="http://linuxgameru.narod.ru"
 SRC_URI="https://github.com/downloads/zaharchuktv/linuxgame/${P}.tar.gz"
 
@@ -26,18 +26,18 @@ src_unpack() {
 
 src_install() {
 cd ${WORKDIR}
-mkdir -p ${D}/usr/share/raptor-call-shadows
+mkdir -p ${D}/usr/share/redneck-rampage-route66
 mkdir -p ${D}/usr/share/applications
 mkdir -p ${D}/usr/share/pixmaps
 mkdir -p ${D}/usr/bin
 
-cp -r ${WORKDIR}/${P}/raptor-call-shadows.desktop ${D}/usr/share/raptor-call-shadows/raptor-call-shadows.desktop
-cp -r ${WORKDIR}/${P}/raptor-call-shadows.desktop ${D}/usr/share/applications/raptor-call-shadows.desktop
-cp -r ${WORKDIR}/${P}/raptor-call-shadows-unarh.desktop ${D}/usr/share/applications/raptor-call-shadows-unarh.desktop
-cp -r ${WORKDIR}/${P}/RaptorCalloftheShadows.png ${D}/usr/share/pixmaps
-cp -r ${WORKDIR}/${P}/raptor-call-shadows ${D}/usr/bin
-cp -r ${WORKDIR}/${P}/raptor-call-shadows-unarh ${D}/usr/bin
-cp -r ${WORKDIR}/${P}/readme.txt ${D}/usr/share/raptor-call-shadows
+cp -r ${WORKDIR}/${P}/redneck-rampage-route66.desktop ${D}/usr/share/redneck-rampage-route66/redneck-rampage-route66.desktop
+cp -r ${WORKDIR}/${P}/redneck-rampage-route66.desktop ${D}/usr/share/applications/redneck-rampage-route66.desktop
+cp -r ${WORKDIR}/${P}/redneck-rampage-route66-unarh.desktop ${D}/usr/share/applications/redneck-rampage-route66-unarh.desktop
+cp -r ${WORKDIR}/${P}/RedneckRampage.png ${D}/usr/share/pixmaps
+cp -r ${WORKDIR}/${P}/redneck-rampage-route66 ${D}/usr/bin
+cp -r ${WORKDIR}/${P}/redneck-rampage-route66-unarh ${D}/usr/bin
+cp -r ${WORKDIR}/${P}/readme.txt ${D}/usr/share/redneck-rampage-route66
 
 }
 

@@ -18,7 +18,8 @@ IUSE=""
 
 RESTRICT="mirror strip"
 
-RDEPEND="x11-terms/xterm"
+RDEPEND="x11-terms/xterm
+	gnome-extra/bug-buddy"
 
 
 src_unpack() {
@@ -39,6 +40,7 @@ cp -r ${WORKDIR}/${P}/linuxgame-installer-update.desktop ${D}/usr/share/applicat
 cp -r ${WORKDIR}/${P}/linuxgame-installer.png ${D}/usr/share/pixmaps
 cp -r ${WORKDIR}/${P}/linuxgame-installer-update ${D}/usr/bin
 cp -r ${WORKDIR}/${P}/linuxgame-installer ${D}/usr/bin
+cp -r ${WORKDIR}/${P}/wgetnarodru ${D}/usr/bin
 cp -r ${WORKDIR}/${P}/txt ${D}/usr/share/linuxgame-installer
 
 

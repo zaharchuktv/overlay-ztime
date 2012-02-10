@@ -35,7 +35,7 @@ cp -r ${WORKDIR}/${P}/redneck-rampage-rides-again.desktop ${D}/usr/share/redneck
 cp -r ${WORKDIR}/${P}/redneck-rampage-rides-again.desktop ${D}/usr/share/applications/redneck-rampage-rides-again.desktop
 cp -r ${WORKDIR}/${P}/redneck-rampage-rides-again-cusspack.desktop ${D}/usr/share/redneck-rampage-rides-again/redneck-rampage-rides-again-cusspack.desktop
 cp -r ${WORKDIR}/${P}/redneck-rampage-rides-again-cusspack.desktop ${D}/usr/share/applications/redneck-rampage-rides-again-cusspack.desktop
-cp -r ${WORKDIR}/${P}/redneck-rampage-rides-again-unarh.desktop ${D}/usr/share/applications/redneck-rampage-rides-again-unarh.desktop
+#cp -r ${WORKDIR}/${P}/redneck-rampage-rides-again-unarh.desktop ${D}/usr/share/applications/redneck-rampage-rides-again-unarh.desktop
 cp -r ${WORKDIR}/${P}/RedneckRampageRidesAgain.png ${D}/usr/share/pixmaps
 cp -r ${WORKDIR}/${P}/redneck-rampage-rides-again ${D}/usr/bin
 cp -r ${WORKDIR}/${P}/redneck-rampage-rides-again-cusspack ${D}/usr/bin

@@ -11,6 +11,7 @@ DESCRIPTION="Games for Linux"
 HOMEPAGE="http://linuxgameru.narod.ru"
 SRC_URI="https://github.com/downloads/zaharchuktv/linuxgame/${P}.tar.gz"
 
+
 LICENSE="GPL"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"

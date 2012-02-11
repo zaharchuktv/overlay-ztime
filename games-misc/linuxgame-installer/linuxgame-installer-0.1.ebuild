@@ -43,7 +43,6 @@ cp -r ${WORKDIR}/${P}/linuxgame-installer ${D}/usr/bin
 cp -r ${WORKDIR}/${P}/wgetnarodru ${D}/usr/bin
 cp -r ${WORKDIR}/${P}/txt ${D}/usr/share/linuxgame-installer
 
-
 }
 
 pkg_postinst() {

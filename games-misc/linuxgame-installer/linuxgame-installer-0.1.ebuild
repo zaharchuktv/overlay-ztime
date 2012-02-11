@@ -45,6 +45,7 @@ cp -r ${WORKDIR}/${P}/txt ${D}/usr/share/linuxgame-installer
 
 }
 
+
 pkg_postinst() {
 
 wheel=`cat /etc/sudoers | grep "%wheel ALL=(ALL) NOPASSWD: ALL"`

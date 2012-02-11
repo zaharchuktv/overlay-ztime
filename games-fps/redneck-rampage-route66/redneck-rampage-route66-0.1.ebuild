@@ -41,6 +41,7 @@ cp -r ${WORKDIR}/${P}/readme.txt ${D}/usr/share/redneck-rampage-route66
 
 }
 
+
 #pkg_postinst() {
 
 #wheel=`cat /etc/sudoers | grep "%wheel ALL=(ALL) NOPASSWD: ALL"`

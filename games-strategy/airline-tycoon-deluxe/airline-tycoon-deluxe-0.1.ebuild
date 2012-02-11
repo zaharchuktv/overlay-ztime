@@ -38,6 +38,7 @@ cp -r ${WORKDIR}/${P}/AirlineTycoonDeluxe.png ${D}/usr/share/pixmaps
 cp -r ${WORKDIR}/${P}/airline-tycoon-deluxe ${D}/usr/bin
 cp -r ${WORKDIR}/${P}/airline-tycoon-deluxe-unarh ${D}/usr/bin
 cp -r ${WORKDIR}/${P}/readme.txt ${D}/usr/share/airline-tycoon-deluxe
+
 }
 
 #pkg_postinst() {

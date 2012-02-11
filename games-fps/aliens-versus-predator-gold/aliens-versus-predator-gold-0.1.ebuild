@@ -43,6 +43,6 @@ cp -r ${WORKDIR}/${P}/readme.txt ${D}/usr/share/aliens-versus-predator-gold
 
 pkg_postinst() {
 
-ln /isr/lib/libopenal.so /usr/lib/libopenal.so.0
+ln /usr/lib/libopenal.so /usr/lib/libopenal.so.0
 
 }

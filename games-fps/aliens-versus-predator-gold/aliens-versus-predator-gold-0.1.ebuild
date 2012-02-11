@@ -6,7 +6,7 @@ EAPI=3
 
 inherit eutils
 
-DESCRIPTION="Airline Tycoon Deluxe"
+DESCRIPTION="Aliens Versus Predator Gold"
 HOMEPAGE="http://linuxgameru.narod.ru"
 SRC_URI="https://github.com/downloads/zaharchuktv/linuxgame/${P}.tar.gz"
 
@@ -17,7 +17,7 @@ IUSE=""
 
 RESTRICT="mirror strip"
 
-RDEPEND=""
+RDEPEND="media-libs/alsa-oss"
 
 src_unpack() {
 	    unpack ${A}
@@ -26,21 +26,20 @@ src_unpack() {
 
 src_install() {
 cd ${WORKDIR}
-mkdir -p ${D}/usr/share/airline-tycoon-deluxe
+mkdir -p ${D}/usr/share/aliens-versus-predator-gold
 mkdir -p ${D}/usr/share/applications
 mkdir -p ${D}/usr/share/pixmaps
 mkdir -p ${D}/usr/bin
 
-cp -r ${WORKDIR}/${P}/airline-tycoon-deluxe.desktop ${D}/usr/share/airline-tycoon-deluxe/airline-tycoon-deluxe.desktop
-cp -r ${WORKDIR}/${P}/airline-tycoon-deluxe.desktop ${D}/usr/share/applications/airline-tycoon-deluxe.desktop
-#cp -r ${WORKDIR}/${P}/airline-tycoon-deluxe-unarh.desktop ${D}/usr/share/applications/airline-tycoon-deluxe-unarh.desktop
-cp -r ${WORKDIR}/${P}/AirlineTycoonDeluxe.png ${D}/usr/share/pixmaps
-cp -r ${WORKDIR}/${P}/airline-tycoon-deluxe ${D}/usr/bin
-cp -r ${WORKDIR}/${P}/airline-tycoon-deluxe-unarh ${D}/usr/bin
-cp -r ${WORKDIR}/${P}/readme.txt ${D}/usr/share/airline-tycoon-deluxe
+cp -r ${WORKDIR}/${P}/raliens-versus-predator-gold.desktop ${D}/usr/share/aliens-versus-predator-gold/aliens-versus-predator-gold.desktop
+cp -r ${WORKDIR}/${P}/aliens-versus-predator-gold.desktop ${D}/usr/share/applications/aliens-versus-predator-gold.desktop
+#cp -r ${WORKDIR}/${P}/aliens-versus-predator-gold-unarh.desktop ${D}/usr/share/applications/aliens-versus-predator-gold-unarh.desktop
+cp -r ${WORKDIR}/${P}/AliensVersusPredatorGold.png ${D}/usr/share/pixmaps
+cp -r ${WORKDIR}/${P}/aliens-versus-predator-gold ${D}/usr/bin
+cp -r ${WORKDIR}/${P}/aliens-versus-predator-gold-unarh ${D}/usr/bin
+cp -r ${WORKDIR}/${P}/readme.txt ${D}/usr/share/aliens-versus-predator-gold
 
 }
-
 
 #pkg_postinst() {
 

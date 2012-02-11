@@ -17,7 +17,7 @@ IUSE=""
 
 RESTRICT="mirror strip"
 
-RDEPEND="media-libs/alsa-oss"
+RDEPEND="media-libs/openal"
 
 src_unpack() {
 	    unpack ${A}
@@ -41,12 +41,8 @@ cp -r ${WORKDIR}/${P}/readme.txt ${D}/usr/share/aliens-versus-predator-gold
 
 }
 
-#pkg_postinst() {
+pkg_postinst() {
 
-#wheel=`cat /etc/sudoers | grep "%wheel ALL=(ALL) NOPASSWD: ALL"`
-#if [ "%wheel ALL=(ALL) NOPASSWD: ALL" = "$wheel" ]; then
-#    echo "Запись %wheel ALL=(ALL) NOPASSWD: ALL уже есть в файле /etc/sudoers"
-#    else
-#    echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
-#    fi
-#}
+ln /isr/lib/libopenal.so /usr/lib/libopenal.so.0
+
+}

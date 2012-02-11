@@ -34,7 +34,7 @@ mkdir -p ${D}/usr/bin
 cp -r ${WORKDIR}/${P}/redneck-rampage-route66.desktop ${D}/usr/share/redneck-rampage-route66/redneck-rampage-route66.desktop
 cp -r ${WORKDIR}/${P}/redneck-rampage-route66.desktop ${D}/usr/share/applications/redneck-rampage-route66.desktop
 #cp -r ${WORKDIR}/${P}/redneck-rampage-route66-unarh.desktop ${D}/usr/share/applications/redneck-rampage-route66-unarh.desktop
-cp -r ${WORKDIR}/${P}/RedneckRampage.png ${D}/usr/share/pixmaps
+cp -r ${WORKDIR}/${P}/RedneckRampageRoute66.png ${D}/usr/share/pixmaps
 cp -r ${WORKDIR}/${P}/redneck-rampage-route66 ${D}/usr/bin
 cp -r ${WORKDIR}/${P}/redneck-rampage-route66-unarh ${D}/usr/bin
 cp -r ${WORKDIR}/${P}/readme.txt ${D}/usr/share/redneck-rampage-route66

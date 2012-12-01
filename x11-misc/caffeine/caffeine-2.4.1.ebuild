@@ -35,6 +35,10 @@ mv ${WORKDIR}/recipe-2.4.1+{revno} ${WORKDIR}/caffeine-2.4.1
 pkg_postinst() {
 
 cp ${FILESDIR}/caffeine-preferences.desktop /usr/share/applications
+rm /usr/share/applications/caffeine.desktop
+cp ${FILESDIR}/caffeine.desktop /usr/share/applications
+cp ${FILESDIR}/caffeine.sh /usr/bin
 glib-compile-schemas /usr/share/glib-2.0/schemas
+
 
 }

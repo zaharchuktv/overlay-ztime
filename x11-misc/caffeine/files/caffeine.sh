@@ -1,3 +1,3 @@
 #!/bin/sh
 
-/usr/bin/caffeine > /dev/null
+/usr/bin/caffeine > /tmp/caffeine.log

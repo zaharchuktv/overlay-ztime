@@ -1,9 +1,0 @@
-# Copyright 1999-2008 Gentoo Foundation.
-# Distributed under the terms of the GNU General Public License v2
-# $Header: $
-
-sys-apps/calculate-install:minimal - Without Calculate Linux install support
-sys-apps/calculate-install:pxe - Enables support for PXE installation
-sys-kernel/pentium-sources:vmlinuz - Build kernel, modules and initramfs
-sys-kernel/pentium-sources:bfq - Apply kernel patch for BFQ I/O scheduler
-sys-kernel/pentium-sources:bfs - Apply kernel patch for BF scheduler

@@ -1,5 +1,0 @@
-USE=""
-
-#EMERGE_DEFAULT_OPTS="--deep"
-FEATURES="getbinpkg -news"
-

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
 <repositories xmlns="" version="1.0">
-<repo quality="testing" status="unofficial">
+<repo quality="testing" status="official">
     <name>ztime</name>
     <description>ztime Overlay</description>
     <homepage>http://www.ztime.ru</homepage>

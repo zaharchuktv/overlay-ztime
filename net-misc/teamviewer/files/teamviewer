@@ -1,3 +1,0 @@
-#!/bin/sh
-
-exec ~/Программы/teamviewer/.tvscript/teamviewer
